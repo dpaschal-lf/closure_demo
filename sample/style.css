@@ -1,0 +1,28 @@
+body{
+	display: flex;
+	height: 100vh;
+	margin: 0;
+}
+#listDisplay{
+	background-color: pink;
+	width: 70%;
+}
+#infoDisplay{
+	width: 30%;
+	background-color: lightblue;
+}
+.studentContainer{
+	position: relative;
+	line-height: 2em;
+}
+.studentContainer::after{
+	content: '';
+	width: 80%;
+	position: absolute;
+	bottom: 0;
+	border-bottom: 1px solid black;
+	left: 10%;
+}
+.studentContainer > .name{
+	font-weight: bold;
+}
