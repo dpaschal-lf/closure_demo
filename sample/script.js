@@ -28,8 +28,9 @@ function listAllStudents(studentArray){
 		debugger;
 		var container = $("<div>",{
 			'class': 'studentContainer',
-			'personIndex': i
 		});
+		container[0].studentInfo = studentArray[i]
+		console.log(container)
 		container.click( handleClick );
 		// var container = document.createElement('div');
 		// container.classList.add('studentContainer');
@@ -48,11 +49,11 @@ function listAllStudents(studentArray){
 }
 
 function handleClick(){
-	console.log(event.currentTarget);
-	var index = event.currentTarget.getAttribute('personIndex');
-	var index = $(event.currentTarget).attr('personIndex');
-	console.log(index);
-	var personObject = students[index];
+	console.dir(event.currentTarget);
+	// var index = event.currentTarget.getAttribute('personIndex');
+	// var index = $(event.currentTarget).attr('personIndex');
+	// console.log(index);
+	var personObject = event.currentTarget.studentInfo;
 
 	var name = $("<div>",{
 		class: 'name',
