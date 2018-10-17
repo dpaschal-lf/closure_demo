@@ -26,11 +26,17 @@ function listAllStudents(studentArray){
 		var container = $("<div>",{
 			'class': 'studentContainer'
 		});
+		// var container = document.createElement('div');
+		// container.classList.add('studentContainer');
 		var name = $("<div>",{
 			'class': 'name',
 			text: studentArray[i].name
 		});
+		// var name = document.createElement('div');
+		// name.classList.add('name');
+		// name.textContent = studentArray[i].name
 		container.append(name);
+		// container.appendChild(name);
 		domElements.push(container);
 	}
 	$("#listDisplay").empty().append(domElements);
