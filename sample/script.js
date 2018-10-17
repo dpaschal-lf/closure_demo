@@ -10,11 +10,50 @@ var students = [
 
 ];
 
-function listAllStudents(studentArray){
-	for(var i=0; i<studentArray.length; i++){
+$(document).ready(initializeApp);
 
-	}
+function initializeApp(){
+	listAllStudents(students);
 }
+/*
+		<div class="studentContainer">
+			<div class="name">Test Student2</div>
+		</div>
+		*/
+function listAllStudents(studentArray){
+	var domElements = [];
+	for(var i=0; i<studentArray.length; i++){
+		var container = $("<div>",{
+			'class': 'studentContainer'
+		});
+		var name = $("<div>",{
+			'class': 'name',
+			text: studentArray[i].name
+		});
+		container.append(name);
+		domElements.push(container);
+	}
+	$("#listDisplay").empty().append(domElements);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
