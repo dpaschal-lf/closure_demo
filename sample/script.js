@@ -6,6 +6,8 @@ var students = [
 	{ name: 'julian', favoriteColor: 'predictable blue', spiritAnimal: 'https://natgeo.imgix.net/factsheets/thumbnails/Article-%20Sloths%20May%20Be%20Slow,%20But%20Theyre%20Not%20Stupid%20.jpg?auto=compress,format&w=1024&h=560&fit=crop'},
 	{ name: 'erin', favoriteColor: 'red', spiritAnimal: 'https://www.savethekoala.com/sites/savethekoala.com/files/uploads/31.jpg'},
 	{ name: 'kyle', favoriteColor: 'green', spiritAnimal: 'https://www.natgeokids.com/wp-content/uploads/2017/02/giraffe-facts-1.jpg'},
+	{ name: 'cody', favoriteColor: 'blue', spiritAnimal: 'https://a57.foxnews.com/a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/640/320/1862/1048/polar20bear20istock.jpg?ve=1&tl=1?ve=1&tl=1'},
+	{ name: 'oscar', favoriteColor: 'green', spiritAnimal: 'https://www.grindtv.com/wp-content/uploads/2016/03/Tiny-shark-rescue-1-1024x700.jpg'},
 
 
 ];
@@ -23,9 +25,12 @@ function initializeApp(){
 function listAllStudents(studentArray){
 	var domElements = [];
 	for(var i=0; i<studentArray.length; i++){
+		debugger;
 		var container = $("<div>",{
-			'class': 'studentContainer'
+			'class': 'studentContainer',
+			'personIndex': i
 		});
+		container.click( handleClick );
 		// var container = document.createElement('div');
 		// container.classList.add('studentContainer');
 		var name = $("<div>",{
@@ -42,7 +47,25 @@ function listAllStudents(studentArray){
 	$("#listDisplay").empty().append(domElements);
 }
 
+function handleClick(){
+	console.log(event.currentTarget);
+	var index = event.currentTarget.getAttribute('personIndex');
+	var index = $(event.currentTarget).attr('personIndex');
+	console.log(index);
+	var personObject = students[index];
 
+	var name = $("<div>",{
+		class: 'name',
+		text: personObject.name,
+		css: {
+			color: personObject.favoriteColor
+		}
+	});
+	var img = $("<img>",{
+		src: personObject.spiritAnimal
+	})
+	$("#infoDisplay").empty().append(name, img);
+}
 
 
 

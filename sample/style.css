@@ -26,3 +26,10 @@ body{
 .studentContainer > .name{
 	font-weight: bold;
 }
+#infoDisplay > .name{
+	font-weight: bold;
+	font-size: 300%;
+}
+#infoDisplay > img{
+	width: 100%;
+}
