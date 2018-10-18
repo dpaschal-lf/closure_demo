@@ -24,36 +24,20 @@ function initializeApp(){
 		*/
 function listAllStudents(studentArray){
 	var domElements = [];
-	for(var i=0; i<studentArray.length; i++){
+	for(let i=0; i<studentArray.length; i++){
 		var container = $("<div>",{
 			'class': 'studentContainer',
 		});
-		var boundFunction = handleClick.bind( null, studentArray[i])
-		debugger;
-		container.click( boundFunction )
-		// (function (){
-		// 	debugger;
-		// 	var student = studentArray[i];
-		// 	container.click( function(){
-		// 		debugger;
-		// 		console.log(student);
-		// 	} );
-		// })()
-		//addClickHandler(container, i);
-		// container.click( function(){
-		// 	console.log(i);
-		// } );
-		// var container = document.createElement('div');
-		// container.classList.add('studentContainer');
+		container.click( function(){
+			console.log(i);
+		} )
+
 		var name = $("<div>",{
 			'class': 'name',
 			text: studentArray[i].name
 		});
-		// var name = document.createElement('div');
-		// name.classList.add('name');
-		// name.textContent = studentArray[i].name
+
 		container.append(name);
-		// container.appendChild(name);
 		domElements.push(container);
 	}
 	$("#listDisplay").empty().append(domElements);
