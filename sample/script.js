@@ -28,8 +28,16 @@ function listAllStudents(studentArray){
 		var container = $("<div>",{
 			'class': 'studentContainer',
 		});
-		console.log(container)
-		addClickHandler(container, i);
+		
+		(function (){
+			debugger;
+			var student = studentArray[i];
+			container.click( function(){
+				debugger;
+				console.log(student);
+			} );
+		})()
+		//addClickHandler(container, i);
 		// container.click( function(){
 		// 	console.log(i);
 		// } );
