@@ -28,7 +28,7 @@ function listAllStudents(studentArray){
 		var container = $("<div>",{
 			'class': 'studentContainer',
 		});
-		container.click({student: studentArray[i], handleClick })
+		container.click({student: studentArray[i] }, handleClick)
 		// (function (){
 		// 	debugger;
 		// 	var student = studentArray[i];
