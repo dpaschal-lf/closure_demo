@@ -28,7 +28,9 @@ function listAllStudents(studentArray){
 		var container = $("<div>",{
 			'class': 'studentContainer',
 		});
-		container.click({student: studentArray[i] }, handleClick)
+		var boundFunction = handleClick.bind( null, studentArray[i])
+		debugger;
+		container.click( boundFunction )
 		// (function (){
 		// 	debugger;
 		// 	var student = studentArray[i];
@@ -66,7 +68,7 @@ function addClickHandler(domElement, index){
 }
 
 
-function handleClick( indexOfStudent ){
+function handleClick( studentData ){
 	console.dir(event.currentTarget);
 	// var index = event.currentTarget.getAttribute('personIndex');
 	// var index = $(event.currentTarget).attr('personIndex');
